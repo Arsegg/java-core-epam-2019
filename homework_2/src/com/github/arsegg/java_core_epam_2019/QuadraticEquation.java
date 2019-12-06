@@ -4,6 +4,8 @@ public class QuadraticEquation {
     private float a;
     private float b;
     private float c;
+    private Discriminant discriminant;
+    private Root roots;
 
     public QuadraticEquation(float a, float b, float c) {
         if (!isQuadraticEquation(a)) {
@@ -19,43 +21,64 @@ public class QuadraticEquation {
         return a != 0;
     }
 
-    private float calculateDiscriminant() {
-        return b * b - 4 * a * c;
+    private boolean hasTwoDistinctRoots() {
+        return discriminant.discriminant > 0;
     }
 
-    private boolean hasTwoDistinctRoots(float discriminant) {
-        return discriminant > 0;
+    private boolean hasDoubleRoot() {
+        return discriminant.discriminant == 0;
     }
 
-    private boolean hasDoubleRoot(float discriminant) {
-        return discriminant == 0;
+    public void resolve() {
+        discriminant = new Discriminant();
+        System.out.println(discriminant);
+
+        roots = new Root();
+        System.out.println(roots);
     }
 
-    private void calculateTwoDistinctRoots(float discriminant) {
-        var sqrtD = Math.sqrt(discriminant);
+    private class Discriminant {
+        private float discriminant;
 
-        var x1 = (-b + sqrtD) / (2 * a);
-        System.out.println("x1 = " + x1);
+        private Discriminant() {
+            discriminant = b * b - 4 * a * c;
+        }
 
-        var x2 = (-b - sqrtD) / (2 * a);
-        System.out.println("x2 = " + x2);
+        private float sqrt() {
+            return (float) Math.sqrt(discriminant);
+        }
+
+        @Override
+        public String toString() {
+            return "D = " + discriminant;
+        }
     }
 
-    private void calculateDoubleRoot(float discriminant) {
-        var x = -b / (2 * a);
-        System.out.println("x = " + x);
-    }
+    private class Root {
+        private Float root1;
+        private Float root2;
 
-    private void resolve() {
-        var discriminant = calculateDiscriminant();
-        System.out.println("D = " + discriminant);
+        private Root() {
+            if (hasTwoDistinctRoots()) {
+                root1 = (-b + discriminant.sqrt()) / (2 * a);
+                root2 = (-b - discriminant.sqrt()) / (2 * a);
+            } else if (hasDoubleRoot()) {
+                root1 = -b / (2 * a);
+            }
+        }
 
-        if (hasTwoDistinctRoots(discriminant)) {
-            calculateTwoDistinctRoots(discriminant);
-        } else if (hasDoubleRoot(discriminant)) {
-            calculateDoubleRoot(discriminant);
-        } else {
-            System.out.println("No real roots.");
+        @Override
+        public String toString() {
+            if (root1 == null) {
+                return "No real roots.";
+            }
+
+            if (root2 == null) {
+                return "x = " + root1;
+            }
+
+            return "x1 = " + root1 +
+                    ", x2 = " + root2;
         }
     }
 }
