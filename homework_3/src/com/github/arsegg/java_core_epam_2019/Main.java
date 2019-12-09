@@ -3,14 +3,20 @@ package com.github.arsegg.java_core_epam_2019;
 public class Main {
     public static void main(String[] args) {
         var pizza = new Item("Pizza", new Dimension(0.045f, 0.33f, 0.33f));
-        var pasta = new Item("Pasta");
+        var pasta = new Item("Pasta", null);
 
         var ivan = new Executor("Ivan", new Order[1]);
         var order = ivan.createOrder(
                 new Route(
                         new Waypoint[]{
-                                new Waypoint("Невский проспект", new Position(59.935475f, 30.327452f)),
-                                new Waypoint("наб. р. Мойки, 12", new Position(59.941128f, 30.321155f))},
+                                new Waypoint(
+                                        "Невский проспект",
+                                        new Position(59.935475f, 30.327452f, null),
+                                        null),
+                                new Waypoint(
+                                        "наб. р. Мойки, 12",
+                                        new Position(59.941128f, 30.321155f, null),
+                                        null)},
                         Route.Type.FASTEST,
                         new Route.TransportMode[]{
                                 Route.TransportMode.PEDESRTIAN,
@@ -18,7 +24,9 @@ public class Main {
                         new Route.RoadFeature[]{
                                 Route.RoadFeature.MOTORWAY,
                                 Route.RoadFeature.DIRT_ROAD,
-                                Route.RoadFeature.PARK}),
+                                Route.RoadFeature.PARK},
+                        null,
+                        null),
                 new Item[]{pizza, pasta});
         ivan.getOrders()[0] = order;
     }

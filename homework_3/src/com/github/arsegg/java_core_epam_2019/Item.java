@@ -4,12 +4,8 @@ public class Item {
     private String name;
     private Dimension dimension;
 
-    public Item(String name) {
-        this.name = name;
-    }
-
     public Item(String name, Dimension dimension) {
-        this(name);
+        this.name = name;
         this.dimension = dimension;
     }
 

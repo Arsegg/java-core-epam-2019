@@ -10,34 +10,13 @@ public class Route {
     private LocalDateTime departure;
     private LocalDateTime arrival;
 
-    public Route(Waypoint[] waypoints) {
-        this.waypoints = waypoints;
-    }
-
-    public Route(Waypoint[] waypoints, Type type) {
-        this(waypoints);
-        this.type = type;
-    }
-
-    public Route(Waypoint[] waypoints, Type type, TransportMode[] modes) {
-        this(waypoints, type);
-        this.modes = modes;
-    }
-
-    public Route(Waypoint[] waypoints, Type type, TransportMode[] modes, RoadFeature[] features) {
-        this(waypoints, type, modes);
-        this.features = features;
-    }
-
-    public Route(Waypoint[] waypoints, Type type, TransportMode[] modes, RoadFeature[] features,
-                 LocalDateTime departure) {
-        this(waypoints, type, modes, features);
-        this.departure = departure;
-    }
-
     public Route(Waypoint[] waypoints, Type type, TransportMode[] modes, RoadFeature[] features,
                  LocalDateTime departure, LocalDateTime arrival) {
-        this(waypoints, type, modes, features, departure);
+        this.waypoints = waypoints;
+        this.type = type;
+        this.modes = modes;
+        this.features = features;
+        this.departure = departure;
         this.arrival = arrival;
     }
 

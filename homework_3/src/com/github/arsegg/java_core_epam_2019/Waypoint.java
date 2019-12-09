@@ -5,17 +5,9 @@ public class Waypoint {
     private Position position;
     private Type type;
 
-    public Waypoint(Position position) {
-        this.position = position;
-    }
-
-    public Waypoint(String label, Position position) {
-        this(position);
-        this.label = label;
-    }
-
     public Waypoint(String label, Position position, Type type) {
-        this(label, position);
+        this.label = label;
+        this.position = position;
         this.type = type;
     }
 

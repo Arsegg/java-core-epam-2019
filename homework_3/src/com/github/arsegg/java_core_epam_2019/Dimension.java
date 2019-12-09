@@ -5,17 +5,9 @@ public class Dimension {
     private Float width;
     private Float length;
 
-    public Dimension(Float height) {
-        this.height = height;
-    }
-
-    public Dimension(Float height, Float width) {
-        this(height);
-        this.width = width;
-    }
-
     public Dimension(Float height, Float width, Float length) {
-        this(height, width);
+        this.height = height;
+        this.width = width;
         this.length = length;
     }
 

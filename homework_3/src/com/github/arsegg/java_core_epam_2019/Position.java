@@ -5,13 +5,9 @@ public class Position {
     private float longitude;
     private Float altitude;
 
-    public Position(float latitude, float longitude) {
+    public Position(float latitude, float longitude, Float altitude) {
         this.latitude = latitude;
         this.longitude = longitude;
-    }
-
-    public Position(float latitude, float longitude, Float altitude) {
-        this(latitude, longitude);
         this.altitude = altitude;
     }
 

@@ -4,12 +4,8 @@ public class Executor {
     private String name;
     private Order[] orders;
 
-    public Executor(String name) {
-        this.name = name;
-    }
-
     public Executor(String name, Order[] orders) {
-        this(name);
+        this.name = name;
         this.orders = orders;
     }
 
