@@ -5,7 +5,7 @@ import java.io.PrintStream;
 public class Storage {
     private Object[] storage = {};
 
-//    // Ultra-slow method - O(n ^ 2) time complexity and exact memory consumption (no pre-allocated items)
+//    // Ultra-slow method - O(n) time complexity and exact memory consumption (no pre-allocated items)
 //    public void add(Object object) {
 //        var storageStream = Arrays.stream(storage);
 //        var objectStream = Stream.of(object);
@@ -13,7 +13,7 @@ public class Storage {
 //                .toArray();
 //    }
 
-    // Another ultra-slow method - O(n ^ 2) time complexity and exact memory consumption (no pre-allocated items)
+    // Another ultra-slow method - O(n) time complexity and exact memory consumption (no pre-allocated items)
     public void add(Object object) {
         var newStorage = new Object[storage.length + 1];
         System.arraycopy(storage, 0, newStorage, 0, storage.length);
