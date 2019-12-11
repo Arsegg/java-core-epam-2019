@@ -18,19 +18,19 @@ public class DemoTransportCompany {
         Cargo orange = new Cargo();
         orange.setId(2L);
         orange.setName("Orange");
-        storage.add(orange);
+        storage.addCargo(orange);
 
         Carrier company_1 = new Carrier();
         company_1.setId(1L);
         company_1.setName("Company 1");
-        storage.add(company_1);
+        storage.addCarrier(company_1);
 
         Transportation transportation = new Transportation();
         transportation.setBillTo("Ivan Ivanich");
         transportation.setId(1L);
         transportation.setCargo(apple);
         transportation.setCarrier(company_1);
-        storage.add(transportation);
+        storage.addTransportation(transportation);
 
         apple.setTransportations(
                 new Transportation[]{transportation}
