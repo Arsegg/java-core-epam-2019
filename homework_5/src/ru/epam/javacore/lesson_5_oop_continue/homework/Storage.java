@@ -93,6 +93,15 @@ public class Storage {
         return (Transportation[]) transportations.toArray(new Transportation[cargos.size()]);
     }
 
+    public static Transportation getTransportationById(Long id) {
+        for (Transportation transportation : getAllTransportations()) {
+            if (transportation.getId().equals(id)) {
+                return transportation;
+            }
+        }
+
+        return null;
+    }
 
     private static void printAll(MyList arrayList) {
         for (Object object : arrayList) {
