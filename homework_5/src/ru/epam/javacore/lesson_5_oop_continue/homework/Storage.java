@@ -24,6 +24,27 @@ public class Storage {
         return (Cargo[]) cargos.toArray(new Cargo[cargos.size()]);
     }
 
+    public static Cargo getCargoById(Long id) {
+        for (Cargo cargo : getAllCargos()) {
+            if (cargo.getId().equals(id)) {
+                return cargo;
+            }
+        }
+
+        return null;
+    }
+
+
+    public static Cargo getCargoByName(String name) {
+        for (Cargo cargo : getAllCargos()) {
+            if (cargo.getName().equals(name)) {
+                return cargo;
+            }
+        }
+
+        return null;
+    }
+
     public static void addCarrier(Carrier carrier) {
         carrier.generateAndSetNewId();
         carriers.add(carrier);
@@ -35,6 +56,27 @@ public class Storage {
 
     public static Carrier[] getAllCarriers() {
         return (Carrier[]) carriers.toArray(new Carrier[cargos.size()]);
+    }
+
+    public static Carrier getCarrierById(Long id) {
+        for (Carrier carrier : getAllCarriers()) {
+            if (carrier.getId().equals(id)) {
+                return carrier;
+            }
+        }
+
+        return null;
+    }
+
+
+    public static Carrier getCarrierByName(String name) {
+        for (Carrier carrier : getAllCarriers()) {
+            if (carrier.getName().equals(name)) {
+                return carrier;
+            }
+        }
+
+        return null;
     }
 
     public static void addTransportation(Transportation transportation) {
